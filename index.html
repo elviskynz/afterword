@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Afterword</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<style>
+:root{--bg:#e8eef0;--paper:#f7f9f8;--ink:#24323a;--soft:#5d6d75;--line:#c9d4d8;--accent:#b9823a;--accent-ink:#fff;--sage:#4f7a69;--err:#a23b3b}
+@media (prefers-color-scheme:dark){:root{--bg:#121a21;--paper:#1a252e;--ink:#e6eaea;--soft:#9bacb3;--line:#2c3b46;--accent:#e0a95a;--accent-ink:#1a1206;--sage:#86ad9d;--err:#e08a8a}}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.6 Figtree,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+main{max-width:44rem;margin:0 auto;padding:3rem 1.25rem 4rem}
+h1{font:300 clamp(3rem,10vw,4.75rem)/1 Newsreader,Georgia,serif;letter-spacing:-.02em;margin:0 0 .75rem}
+.lede{font:italic 300 1.5rem/1.4 Newsreader,Georgia,serif;color:var(--soft);margin:0 0 3rem;max-width:30rem}
+h2{font:400 1.5rem/1.3 Newsreader,Georgia,serif;margin:0 0 .25rem}
+h3{font:400 1.25rem/1.3 Newsreader,Georgia,serif;margin:0 0 .75rem}
+.hint{color:var(--soft);font-size:.95rem;margin:0 0 1.25rem}
+section{margin-bottom:3rem}
+[hidden]{display:none!important}
+.how{display:grid;grid-template-columns:1fr 1fr;gap:2rem 2.5rem}
+.how ol{margin:0;padding:0;list-style:none;counter-reset:s}
+.how ol li{counter-increment:s;position:relative;padding-left:2rem;margin-bottom:.9rem}
+.how ol li::before{content:counter(s);position:absolute;left:0;top:.1rem;width:1.4rem;height:1.4rem;border:1px solid var(--accent);color:var(--accent);border-radius:50%;font-size:.8rem;line-height:1.3rem;text-align:center}
+.how ul{margin:0;padding-left:1.1rem}.how ul li{margin-bottom:.6rem}
+.how strong{font-weight:500}
+.tabs{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}
+.tab{font:inherit;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:999px;padding:.4rem 1rem;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.letter,.auth{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:1.75rem 1.5rem;box-shadow:0 18px 40px -28px var(--accent)}
+.auth{max-width:26rem}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.25rem}
+label{display:block;font-size:.9rem;color:var(--soft);margin-bottom:.25rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);padding:.5rem 0;border-radius:0}
+.auth input{margin-bottom:1rem}
+textarea{font:400 1.25rem/1.75 Newsreader,Georgia,serif;min-height:18rem;resize:vertical}
+input:focus,textarea:focus,.tab:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.bar{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1rem}
+button.main{font:500 1rem Figtree,sans-serif;background:var(--accent);color:var(--accent-ink);border:0;border-radius:6px;padding:.65rem 1.25rem;cursor:pointer}
+button.quiet{font:inherit;background:none;border:0;color:var(--soft);text-decoration:underline;cursor:pointer;padding:.5rem}
+.status{color:var(--sage);font-size:.9rem;margin-left:auto}
+.msg{font-size:.95rem;margin:.75rem 0 0;color:var(--err);min-height:1.4em}
+.trusted{border-left:3px solid var(--sage);padding-left:1.25rem}
+.note{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:1rem 1.25rem;color:var(--soft);font-size:.95rem}
+.note strong{color:var(--ink);font-weight:500}
+.top{display:flex;justify-content:flex-end;margin-bottom:1rem}
+@media (max-width:34rem){.row,.how{grid-template-columns:1fr}.letter{padding:1.25rem 1rem}}
+</style>
+</head>
+<body>
+<main>
+<div class="top" id="top" hidden><button class="quiet" id="out">Sign out</button></div>
+<h1>Afterword</h1>
+<p class="lede">Say what you want them to know, while you can.</p>
+
+<section aria-labelledby="hh">
+<h2 id="hh">How Afterword works</h2>
+<p class="hint">It is a quiet place to write down what matters, so the people you love hear it from you.</p>
+<div class="how">
+<div><h3>The steps</h3><ol>
+<li><strong>Write your letters.</strong> One for each person, in your own words.</li>
+<li><strong>Choose a trusted person.</strong> Someone who will tell Afterword when the time has come.</li>
+<li><strong>Your letters stay private.</strong> Nobody reads them, and nothing is sent, while you are here.</li>
+<li><strong>Your trusted person confirms.</strong> Each letter is then emailed to the person it was written for.</li>
+</ol></div>
+<div><h3>What you will need</h3><ul>
+<li>An email address for each person you are writing to.</li>
+<li>One trusted person who has agreed to do this, and their email address.</li>
+<li>An Afterword account, so your letters are saved safely.</li>
+<li>A little quiet time. You do not have to finish in one sitting.</li>
+</ul></div>
+</div>
+</section>
+
+<section id="authBox" aria-labelledby="ah" hidden>
+<h2 id="ah">Sign in to begin</h2>
+<p class="hint">Create an account the first time. Use a password of at least 8 characters.</p>
+<div class="auth">
+<label for="em">Your email address</label><input id="em" type="email" autocomplete="email">
+<label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password">
+<div class="bar"><button class="main" id="in">Sign in</button><button class="quiet" id="up">Create account</button></div>
+<p class="msg" id="amsg" role="alert"></p>
+</div>
+</section>
+
+<div id="app" hidden>
+<section aria-labelledby="lh">
+<h2 id="lh">Your letters</h2>
+<p class="hint">Write one letter for each person. Take your time. You can come back and change them whenever you like.</p>
+<div class="tabs" id="tabs"></div>
+<div class="letter">
+<div class="row">
+<div><label for="to">Who is this letter for?</label><input id="to" autocomplete="off" placeholder="Their name"></div>
+<div><label for="email">Their email address</label><input id="email" type="email" autocomplete="off" placeholder="name@example.com"></div>
+</div>
+<label for="body">Your message</label>
+<textarea id="body" placeholder="Dear …"></textarea>
+<div class="bar">
+<button class="main" id="dl">Download this letter</button>
+<button class="quiet" id="del">Remove this letter</button>
+<span class="status" id="status" role="status"></span>
+</div>
+</div>
+</section>
+<section class="trusted" aria-labelledby="th">
+<h2 id="th">Your trusted person</h2>
+<p class="hint">Choose someone who will let Afterword know when your letters should be sent.</p>
+<div class="row">
+<div><label for="tn">Their name</label><input id="tn" autocomplete="off"></div>
+<div><label for="te">Their email address</label><input id="te" type="email" autocomplete="off"></div>
+</div>
+</section>
+<p class="note"><strong>Sending is not switched on yet.</strong> Your letters are saved privately to your account, and you can download a copy of each one. Emailing them after a trusted person confirms is the next thing to be set up.</p>
+</div>
+</main>
+
+<script>
+var SUPABASE_URL="https://itcqbsxbhfazybmpoajp.supabase.co";
+var SUPABASE_KEY="sb_publishable_yRMmmIf3dPkPV5nFmRrRfg_DVQbzNzx";
+var sb=supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+var $=function(i){return document.getElementById(i)};
+var st={letters:[],trusted:{name:"",email:""},cur:0,uid:null},dirty={},tdirty=false,timer=null;
+
+function say(t){$("status").textContent=t}
+function amsg(t){$("amsg").textContent=t}
+
+async function auth(kind){
+  amsg("");
+  var e=$("em").value.trim(),p=$("pw").value;
+  if(!e||p.length<8){amsg("Enter your email address and a password of at least 8 characters.");return}
+  var r=kind==="up"?await sb.auth.signUp({email:e,password:p}):await sb.auth.signInWithPassword({email:e,password:p});
+  if(r.error){amsg(r.error.message);return}
+  if(kind==="up"&&!r.data.session){amsg("Account created. Check your email for a confirmation link, then sign in.");return}
+}
+$("in").onclick=function(){auth("in")};
+$("up").onclick=function(){auth("up")};
+$("out").onclick=function(){sb.auth.signOut()};
+
+async function enter(user){
+  st.uid=user.id;
+  var l=await sb.from("letters").select("id,to_name,to_email,body").order("updated_at",{ascending:true});
+  var t=await sb.from("trusted_people").select("name,email").maybeSingle();
+  st.letters=l.data||[];
+  if(t.data)st.trusted=t.data;
+  if(!st.letters.length)await addLetter(true);
+  st.cur=0;
+  $("authBox").hidden=true;$("app").hidden=false;$("top").hidden=false;
+  render();
+}
+async function addLetter(quiet){
+  var r=await sb.from("letters").insert({}).select("id,to_name,to_email,body").single();
+  if(r.error){say("Could not add a letter. Try again.");return}
+  st.letters.push(r.data);st.cur=st.letters.length-1;
+  if(!quiet){render();$("to").focus()}
+}
+function render(){
+  var t=$("tabs");t.innerHTML="";
+  st.letters.forEach(function(l,i){
+    var b=document.createElement("button");b.className="tab";
+    b.setAttribute("aria-pressed",i===st.cur);
+    b.textContent=l.to_name.trim()||"New letter";
+    b.onclick=function(){st.cur=i;render()};
+    t.appendChild(b);
+  });
+  var add=document.createElement("button");add.className="tab";add.textContent="Add a letter";
+  add.onclick=function(){addLetter(false)};t.appendChild(add);
+  var l=st.letters[st.cur];
+  $("to").value=l.to_name;$("email").value=l.to_email;$("body").value=l.body;
+  $("tn").value=st.trusted.name;$("te").value=st.trusted.email;
+}
+function later(){say("Saving…");clearTimeout(timer);timer=setTimeout(flush,800)}
+async function flush(){
+  var ok=true;
+  for(var id in dirty){
+    var l=dirty[id];delete dirty[id];
+    var r=await sb.from("letters").update({to_name:l.to_name,to_email:l.to_email,body:l.body,updated_at:new Date().toISOString()}).eq("id",l.id);
+    if(r.error)ok=false;
+  }
+  if(tdirty){tdirty=false;
+    var r2=await sb.from("trusted_people").upsert({user_id:st.uid,name:st.trusted.name,email:st.trusted.email});
+    if(r2.error)ok=false;
+  }
+  say(ok?"Saved":"Could not save. Check your connection.");
+}
+[["to","to_name"],["email","to_email"],["body","body"]].forEach(function(p){
+  $(p[0]).addEventListener("input",function(){
+    var l=st.letters[st.cur];l[p[1]]=this.value;dirty[l.id]=l;
+    if(p[0]==="to"){var b=$("tabs").children[st.cur];if(b)b.textContent=this.value.trim()||"New letter"}
+    later();
+  });
+});
+$("tn").addEventListener("input",function(){st.trusted.name=this.value;tdirty=true;later()});
+$("te").addEventListener("input",function(){st.trusted.email=this.value;tdirty=true;later()});
+
+$("del").onclick=async function(){
+  if(!confirm("Remove this letter? This cannot be undone."))return;
+  var l=st.letters[st.cur];delete dirty[l.id];
+  var r=await sb.from("letters").delete().eq("id",l.id);
+  if(r.error){say("Could not remove it. Try again.");return}
+  st.letters.splice(st.cur,1);
+  if(!st.letters.length)await addLetter(true);
+  st.cur=0;render();say("Removed");
+};
+$("dl").onclick=function(){
+  var l=st.letters[st.cur];
+  var text="For "+(l.to_name||"you")+"\n\n"+l.body+"\n";
+  var a=document.createElement("a");
+  a.href=URL.createObjectURL(new Blob([text],{type:"text/plain"}));
+  a.download="letter-"+((l.to_name||"loved-one").trim().toLowerCase().replace(/[^a-z0-9]+/g,"-")||"loved-one")+".txt";
+  document.body.appendChild(a);a.click();a.remove();say("Downloaded");
+};
+
+sb.auth.onAuthStateChange(function(ev,session){
+  if(session&&session.user){setTimeout(function(){enter(session.user)},0)}
+  else{st.uid=null;$("app").hidden=true;$("top").hidden=true;$("authBox").hidden=false;$("pw").value=""}
+});
+</script>
+</body>
+</html>
