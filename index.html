@@ -49,12 +49,28 @@ button.quiet{font:inherit;background:none;border:0;color:var(--soft);text-decora
 .ci{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:1.25rem 1.5rem}
 .ci p{margin:0 0 .75rem}
 @media (max-width:34rem){.row,.how{grid-template-columns:1fr}.letter{padding:1.25rem 1rem}}
+.candle{display:block;margin:0 0 1rem;overflow:visible}
+.candle .flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick 3.2s ease-in-out infinite}
+.candle .glow{animation:pulse 3.2s ease-in-out infinite}
+@keyframes flick{0%,100%{transform:scale(1,1) rotate(0)}20%{transform:scale(.96,1.05) rotate(-2deg)}45%{transform:scale(1.03,.97) rotate(1.5deg)}70%{transform:scale(.97,1.04) rotate(-1deg)}}
+@keyframes pulse{0%,100%{opacity:.85}45%{opacity:1}70%{opacity:.7}}
+@media (prefers-reduced-motion:reduce){.candle .flame,.candle .glow{animation:none}}
 </style>
 </head>
 <body>
 <main>
 <div class="top" id="top" hidden><button class="quiet" id="out">Sign out</button></div>
-<h1>Afterword</h1>
+<svg id="candle" class="candle" viewBox="0 0 60 100" width="60" height="100" aria-hidden="true">
+<defs>
+<radialGradient id="glow"><stop offset="0" stop-color="#f6c76a" stop-opacity=".55"/><stop offset="1" stop-color="#f6c76a" stop-opacity="0"/></radialGradient>
+<linearGradient id="fl" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#e8962e"/><stop offset=".6" stop-color="#f6c76a"/><stop offset="1" stop-color="#fff3c9"/></linearGradient>
+</defs>
+<circle class="glow" cx="30" cy="30" r="28" fill="url(#glow)"/>
+<path class="flame" d="M30 8 C37 18 40 26 30 38 C20 26 23 18 30 8Z" fill="url(#fl)"/>
+<rect x="29" y="38" width="2" height="8" rx="1" fill="#4a3a2c"/>
+<rect x="18" y="46" width="24" height="50" rx="4" fill="#f3e6c8" stroke="#d6c4a6"/>
+</svg>
+  <h1>Afterword</h1>
 <p class="lede">Say what you want them to know, while you can.</p>
 
 <section aria-labelledby="hh">
@@ -164,7 +180,7 @@ async function enter(user){
   showCheck(s.data?s.data.last_check_in:null);
   if(!st.letters.length)await addLetter(true);
   st.cur=0;
-  $("authBox").hidden=true;$("app").hidden=false;$("top").hidden=false;
+  $("authBox").hidden=true;$("app").hidden=false;$("top").hidden=false;$("candle").hidden=true;
   render();
 }
 async function addLetter(quiet){
@@ -253,7 +269,7 @@ $("delacct").onclick=async function(){
 };
   sb.auth.onAuthStateChange(function(ev,session){
   if(session&&session.user){setTimeout(function(){enter(session.user)},0)}
-  else{st.uid=null;$("app").hidden=true;$("top").hidden=true;$("authBox").hidden=false;$("pw").value=""}
+  else{st.uid=null;$("app").hidden=true;$("top").hidden=true;$("authBox").hidden=false;$("candle").hidden=false;$("pw").value=""}
 });
 </script>
 </body>
